@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════
+   DARK MODE (default)
+═══════════════════════════════════════════════════ */
+:root {
+  --bg:          #060912;
+  --bg2:         #0d1526;
+  --card:        #0f172a;
+  --card2:       #111827;
+  --border:      #1e293b;
+  --border2:     #243047;
+  --text:        #f1f5f9;
+  --text2:       #cbd5e1;
+  --muted:       #64748b;
+  --muted2:      #94a3b8;
+  --teal:        #2dd4bf;
+  --blue:        #3b82f6;
+  --indigo:      #6366f1;
+  --emerald:     #10b981;
+  --amber:       #f59e0b;
+  --rose:        #f43f5e;
+  --sidebar:     rgba(13,21,38,0.97);
+  --topbar:      rgba(13,21,38,0.85);
+  --shadow:      0 4px 24px rgba(0,0,0,.4);
+  color-scheme:  dark;
+}
+
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE
+   Applied when <html> has class="light"
+═══════════════════════════════════════════════════ */
+html.light {
+  --bg:          #f0f4f8;
+  --bg2:         #e2e8f0;
+  --card:        #ffffff;
+  --card2:       #f8fafc;
+  --border:      #cbd5e1;
+  --border2:     #94a3b8;
+  --text:        #0f172a;
+  --text2:       #1e293b;
+  --muted:       #64748b;
+  --muted2:      #475569;
+  --teal:        #0d9488;
+  --blue:        #2563eb;
+  --indigo:      #4f46e5;
+  --emerald:     #059669;
+  --amber:       #d97706;
+  --rose:        #e11d48;
+  --sidebar:     rgba(255,255,255,0.97);
+  --topbar:      rgba(255,255,255,0.92);
+  --shadow:      0 4px 24px rgba(0,0,0,.10);
+  color-scheme:  light;
+}
+
+/* ═══════════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════════ */
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* ═══════════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border2); }
+
+/* ═══════════════════════════════════════════════════
+   UTILITY CLASSES
+═══════════════════════════════════════════════════ */
+
+.mono {
+  font-family: ui-monospace, "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+}
+
+/* Grid dot background */
+.grid-bg {
+  background-image: radial-gradient(circle at 2px 2px, rgba(100,116,139,.12) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+html.light .grid-bg {
+  background-image: radial-gradient(circle at 2px 2px, rgba(100,116,139,.10) 1px, transparent 0);
+}
+
+/* ═══════════════════════════════════════════════════
+   CSS CUSTOM PROPERTY-BASED THEME CLASSES
+   These override Tailwind utility classes so components
+   automatically switch between dark and light.
+═══════════════════════════════════════════════════ */
+
+/* Backgrounds */
+.theme-bg     { background: var(--bg); }
+.theme-bg2    { background: var(--bg2); }
+.theme-card   { background: var(--card); }
+
+/* Text */
+.theme-text   { color: var(--text); }
+.theme-muted  { color: var(--muted); }
+
+/* Borders */
+.theme-border { border-color: var(--border); }
+
+/* Sidebar & Topbar */
+.theme-sidebar { background: var(--sidebar); }
+.theme-topbar  { background: var(--topbar); }
+
+/* Card border & background using CSS vars */
+html.light .rounded-xl.border.border-slate-800\/50 {
+  border-color: var(--border) !important;
+  background: var(--card) !important;
+}
+html.light .rounded-xl.border.border-slate-800 {
+  border-color: var(--border) !important;
+}
+html.light .bg-slate-900\/40,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900,
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/70,
+html.light .bg-slate-950 {
+  background: var(--card) !important;
+}
+html.light .bg-slate-950\/80,
+html.light .bg-slate-950\/95 {
+  background: var(--topbar) !important;
+}
+html.light .border-slate-800,
+html.light .border-slate-800\/50,
+html.light .border-slate-800\/60 {
+  border-color: var(--border) !important;
+}
+html.light .border-slate-700 {
+  border-color: var(--border2) !important;
+}
+html.light .text-slate-100,
+html.light .text-slate-200 {
+  color: var(--text) !important;
+}
+html.light .text-slate-300 {
+  color: var(--text2) !important;
+}
+html.light .text-slate-400,
+html.light .text-slate-500,
+html.light .text-slate-600 {
+  color: var(--muted) !important;
+}
+html.light .bg-slate-800,
+html.light .bg-slate-800\/40,
+html.light .bg-slate-800\/50,
+html.light .bg-slate-800\/60 {
+  background: var(--bg2) !important;
+}
+html.light .divide-slate-800 > * + * {
+  border-color: var(--border) !important;
+}
+html.light input, html.light textarea, html.light select {
+  background: #ffffff !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+html.light input::placeholder, html.light textarea::placeholder {
+  color: var(--muted) !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════ */
+
+.fade-in {
+  animation: fadeIn 0.35s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.pulse-ring::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  animation: pulseRing 2s ease-out infinite;
+}
+@keyframes pulseRing {
+  0%   { transform: scale(.9);  opacity: .7; }
+  70%  { transform: scale(1.4); opacity: 0;  }
+  100% { opacity: 0; }
+}
+
+/* Smooth theme transition for all elements */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+/* But don't animate transforms / sizes */
+.fade-in, [class*="animate-"] {
+  transition-property: none;
+}

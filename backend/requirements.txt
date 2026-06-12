@@ -1,0 +1,35 @@
+# OmniRecon AI — Python Backend Dependencies
+# Install all: pip install -r backend/requirements.txt
+
+# ── Web Framework ─────────────────────────────────────────
+Flask==3.0.0
+Flask-Cors==4.0.0
+Werkzeug==3.0.1
+gunicorn==21.2.0
+
+# ── HTTP Client ───────────────────────────────────────────
+requests==2.31.0
+urllib3==2.0.7
+
+# ── DNS & Domain Intel ────────────────────────────────────
+dnspython==2.4.2
+python-whois==0.8.0
+
+# ── Network Tools ─────────────────────────────────────────
+ping3==4.0.4
+
+# ── Security Analysis ─────────────────────────────────────
+# APK Analysis (real Android app analysis)
+# androguard==3.4.0
+
+# Typosquatting / Domain permutation
+# dnstwist==20231003
+
+# ── Cryptography ──────────────────────────────────────────
+cryptography==41.0.7
+pycryptodome==3.20.0
+
+# ── Data Processing ───────────────────────────────────────
+tldextract==5.1.1
+# tldextract==5.1.1
+# ipaddress
